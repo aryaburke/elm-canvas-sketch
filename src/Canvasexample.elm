@@ -1,4 +1,4 @@
-module Main exposing (main)
+module Canvasexample exposing (main)
 
 import Browser
 import Browser.Events exposing (onAnimationFrameDelta)
@@ -8,6 +8,7 @@ import Canvas.Settings.Advanced exposing (..)
 import Color
 import Html exposing (Html, div)
 import Html.Attributes exposing (style)
+
 
 
 type alias Model =
@@ -80,10 +81,4 @@ render count =
             -(size / 2)
     in
     shapes
-        [ transform
-            [ translate centerX centerY
-            , rotate (degrees (count * 3))
-            ]
-        , fill (Color.hsl (degrees (count / 4)) 0.3 0.7)
-        ]
         [ rect ( x, y ) size size ]

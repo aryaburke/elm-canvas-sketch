@@ -1,4 +1,4 @@
 module Grid exposing (..)
 
 type alias Cell = Int
-type Grid = G [[Cell]]
+type alias Grid = List (List Cell)
