@@ -1,4 +1,4 @@
-module Squares exposing (main)
+module Main exposing (main)
 
 import Browser
 import Canvas exposing (..)
