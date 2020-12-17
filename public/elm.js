@@ -4365,6 +4365,7 @@ var $avh4$elm_color$Color$RgbaSpace = F4(
 	});
 var $avh4$elm_color$Color$black = A4($avh4$elm_color$Color$RgbaSpace, 0 / 255, 0 / 255, 0 / 255, 1.0);
 var $avh4$elm_color$Color$blue = A4($avh4$elm_color$Color$RgbaSpace, 52 / 255, 101 / 255, 164 / 255, 1.0);
+var $elm$html$Html$div = _VirtualDom_node('div');
 var $joakin$elm_canvas$Canvas$Internal$Canvas$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
@@ -4375,6 +4376,7 @@ var $joakin$elm_canvas$Canvas$Settings$fill = function (color) {
 	return $joakin$elm_canvas$Canvas$Internal$Canvas$SettingDrawOp(
 		$joakin$elm_canvas$Canvas$Internal$Canvas$Fill(color));
 };
+var $author$project$Main$height = 300;
 var $joakin$elm_canvas$Canvas$Internal$Canvas$Rect = F3(
 	function (a, b, c) {
 		return {$: 'Rect', a: a, b: b, c: c};
@@ -4529,6 +4531,8 @@ var $author$project$Main$renderSquare = F3(
 					A3($joakin$elm_canvas$Canvas$rect, topLeftCorner, sideLength, sideLength)
 				]));
 	});
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $elm$html$Html$canvas = _VirtualDom_node('canvas');
 var $joakin$elm_canvas$Canvas$cnvs = A2($elm$html$Html$canvas, _List_Nil, _List_Nil);
 var $elm$json$Json$Encode$list = F2(
@@ -5255,8 +5259,6 @@ var $elm$html$Html$Attributes$src = function (url) {
 		'src',
 		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
 var $joakin$elm_canvas$Canvas$renderTextureSource = function (textureSource) {
 	var url = textureSource.a;
 	var onLoad = textureSource.b;
@@ -5323,35 +5325,43 @@ var $joakin$elm_canvas$Canvas$toHtml = F3(
 			attrs,
 			entities);
 	});
-var $author$project$Main$view = function () {
-	var width = 500;
-	var height = 300;
-	return A3(
-		$joakin$elm_canvas$Canvas$toHtml,
-		_Utils_Tuple2(width, height),
-		_List_Nil,
-		_List_fromArray(
-			[
-				A2(
-				$joakin$elm_canvas$Canvas$shapes,
-				_List_fromArray(
-					[
-						$joakin$elm_canvas$Canvas$Settings$fill($avh4$elm_color$Color$black)
-					]),
-				_List_fromArray(
-					[
-						A3(
-						$joakin$elm_canvas$Canvas$rect,
-						_Utils_Tuple2(0, 0),
-						width,
-						height)
-					])),
-				A3(
-				$author$project$Main$renderSquare,
-				$avh4$elm_color$Color$blue,
-				_Utils_Tuple2(10, 10),
-				25)
-			]));
-}();
+var $author$project$Main$width = 500;
+var $author$project$Main$view = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+			A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
+			A2($elm$html$Html$Attributes$style, 'align-items', 'center')
+		]),
+	_List_fromArray(
+		[
+			A3(
+			$joakin$elm_canvas$Canvas$toHtml,
+			_Utils_Tuple2($author$project$Main$width, $author$project$Main$height),
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$joakin$elm_canvas$Canvas$shapes,
+					_List_fromArray(
+						[
+							$joakin$elm_canvas$Canvas$Settings$fill($avh4$elm_color$Color$black)
+						]),
+					_List_fromArray(
+						[
+							A3(
+							$joakin$elm_canvas$Canvas$rect,
+							_Utils_Tuple2(0, 0),
+							$author$project$Main$width,
+							$author$project$Main$height)
+						])),
+					A3(
+					$author$project$Main$renderSquare,
+					$avh4$elm_color$Color$blue,
+					_Utils_Tuple2(10, 10),
+					25)
+				]))
+		]));
 var $author$project$Main$main = $author$project$Main$view;
 _Platform_export({'Main':{'init':_VirtualDom_init($author$project$Main$main)(0)(0)}});}(this));
